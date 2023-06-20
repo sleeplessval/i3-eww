@@ -13,6 +13,9 @@ The workspace numbers emitted will have the `ws-btn` class, `focused` and
 `urgent` classes where appropriate, and an `onclick` handler that switches to the
 workspace it represents.
 
+The program will also issue commands to EWW to update the `WM_MODE` variable with
+the current i3 mode.
+
 ## Libraries
 
 - [i3ipc](https://crates.io/crates/i3ipc) — handles IPC to i3
