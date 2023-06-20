@@ -1,10 +1,18 @@
 [package]
 name = "i3-sec"
-version = "0.1.0"
+version = "0.0.1"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 i3ipc = "0.10.1"
+
+[profile.release]
+opt-level = 's'
+codegen-units = 1
+debug = false
+lto = true
+panic = "abort"
+strip = "debuginfo"
 
