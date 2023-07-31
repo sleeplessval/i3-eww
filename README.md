@@ -16,6 +16,33 @@ workspace it represents.
 The program will also issue commands to EWW to update the `WM_MODE` variable with
 the current i3 mode.
 
+## Sample
+
+```yuck
+
+;;	set WM_MODE variable
+(defvar WM_MODE "default")
+
+;;	set up listener for i3-sec
+(deflisten i3-workspace "/path/to/i3-sec")
+
+;;	basic widget
+(defwidget workspace []
+	(box
+		:space-evenly false
+		;;	basic revealer for mode
+		(revealer
+			:reveal { WM_MODE != "default" }
+			:transition "slideleft"
+			(label :text WM_MODE)
+		)
+		;;	workspace content block
+		(literal :content i3-workspace)
+	)
+)
+
+```
+
 ## Libraries
 
 - [i3ipc](https://crates.io/crates/i3ipc) — handles IPC to i3
